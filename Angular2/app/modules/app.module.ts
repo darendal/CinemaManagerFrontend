@@ -5,6 +5,7 @@ import {AppComponent} from "../components/app.component";
 import {MaterializeDirective} from "angular2-materialize";
 import {CinemaList} from "../components/cinema-list.component";
 import {EditCinema} from "../components/edit-cinema.component";
+import {ContactIcon} from "../components/contact-icon.component";
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import {EditCinema} from "../components/edit-cinema.component";
         BrowserModule,
         FormsModule,
     ],
-    declarations: [ AppComponent,MaterializeDirective,CinemaList,EditCinema],
+    declarations: [ AppComponent,MaterializeDirective,CinemaList,EditCinema,ContactIcon],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

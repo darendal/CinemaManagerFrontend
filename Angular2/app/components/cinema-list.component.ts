@@ -5,6 +5,14 @@ import {OnInit} from "@angular/core";
 
 
 @Component({
+    styles:[
+`
+.address {
+    font-size: smaller;
+    color: darkgray;
+}
+`
+    ],
     selector: 'cinema-list',
     templateUrl:'./app/views/cinema-list.component.html',
     providers:[CinemaService]

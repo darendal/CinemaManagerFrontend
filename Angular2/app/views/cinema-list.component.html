@@ -1,22 +1,23 @@
         <h3 class="blue-text text-accent-1">{{title}}</h3>
 <div class="row">
-    <div class="col s3">
-        <ul class="collection with-header">
-            <li class="collection-item"
+    <div class="col s4">
+        <ul  class="collection with-header">
+            <li class="collection-item avatar"
                 *ngFor="let cinema of cinemas">
+                <contact-icon [name]="cinema.name"></contact-icon>
                 <span class="title">
                     {{cinema.name}}
                     <a href="#!" class="secondary-content" (click)="onSelect(cinema)">
                         <i class="material-icons">mode_edit</i>
                     </a>
                 </span>
-                <p>{{cinema.address}}</p>
+                <p class="address">{{cinema.address}}</p>
             </li>
         </ul>
     </div>
-    <div class="col s9">
+    <div class="col s8">
         <a materialize="tooltip" class="waves-effect waves-light btn-floating tooltipped"
-           data-position="left" data-delay="50" data-tooltip="Add new Cinema"
+           data-position="right" data-delay="50" data-tooltip="Add new Cinema"
         >
             <i class="material-icons">add</i>
         </a>
