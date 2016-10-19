@@ -30,7 +30,8 @@
     "materialize-css":"latest",
     "angular2-materialize":"latest",
     "jquery":"2.2.4",
-    "hammerjs":"latest"
+    "hammerjs":"latest",
+    "ng2-datetime-picker":"latest"
   },
   "devDependencies": {
     "concurrently": "^3.0.0",

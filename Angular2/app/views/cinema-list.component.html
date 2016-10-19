@@ -4,20 +4,20 @@
         <ul  class="collection with-header">
             <li class="collection-item avatar"
                 *ngFor="let cinema of cinemas">
-                <contact-icon [name]="cinema.name"></contact-icon>
+                <contact-icon [name]="cinema.Name"></contact-icon>
                 <span class="title">
-                    {{cinema.name}}
+                    {{cinema.Name}}
                     <a href="#!" class="secondary-content" (click)="onSelect(cinema)">
                         <i class="material-icons">mode_edit</i>
                     </a>
                 </span>
-                <p class="address">{{cinema.address}}</p>
+                <p class="address">{{cinema.Address}}</p>
             </li>
         </ul>
     </div>
     <div class="col s8">
         <a materialize="tooltip" class="waves-effect waves-light btn-floating tooltipped"
-           data-position="right" data-delay="50" data-tooltip="Add new Cinema"
+           data-position="right" data-delay="50" data-tooltip="Add new Cinema" (click)="newCinema()"
         >
             <i class="material-icons">add</i>
         </a>

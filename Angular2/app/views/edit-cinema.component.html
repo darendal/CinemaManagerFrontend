@@ -1,32 +1,37 @@
 <div *ngIf="cinema">
-    <div class="card-panel">
-        <h4>Editing {{cinema.name}}</h4>
+    <div class="card-panel hoverable">
+        <h4 *ngIf="cinema.CinemaId">Editing {{cinema.Name}}</h4>
+        <h4 *ngIf="!cinema.CinemaId">New Cinema</h4>
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" (ngSubmit)="onSubmit()" #cinemaForm = "ngForm">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input [(ngModel)]="cinema.name"
+                        <input [(ngModel)]="cinema.Name"
                                id="cinema_name"
                                type="text"
                                name="cinema_name"
                                maxlength="20"
                         >
-                        <label [class.active]="cinema.name"
+                        <label [class.active]="cinema.Name"
                                for="cinema_name">Cinema Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s8">
-                        <input [(ngModel)]="cinema.address"
+                        <input [(ngModel)]="cinema.Address"
                                id="cinema_address"
                                type="text"
                                name="cinema_address"
                                maxlength="100"
                         >
-                        <label [class.active]="cinema.address"
+                        <label [class.active]="cinema.Address"
                                for="cinema_address">Address</label>
                     </div>
                 </div>
+                <div class="row">
+
+                </div>
+                <button class="waves-effect waves-light btn" type="submit">Save</button>
             </form>
         </div>
     </div>

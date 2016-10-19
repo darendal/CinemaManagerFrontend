@@ -1,5 +1,7 @@
 export class Cinema{
-    id: number;
-    name: string;
-    address:string;
+    CinemaId: number;
+    Name: string;
+    Address:string;
+    OpenTime:string;
+    CloseTime:Date;
 }

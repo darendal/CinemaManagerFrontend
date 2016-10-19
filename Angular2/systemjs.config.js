@@ -26,7 +26,8 @@
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
             "materialize-css": "npm:materialize-css",
             "materialize": "npm:angular2-materialize",
-            "angular2-materialize": "npm:angular2-materialize"
+            "angular2-materialize": "npm:angular2-materialize",
+            "ng2-datetime-picker": 'node_modules/ng2-datetime-picker/dist'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -42,10 +43,14 @@
                 defaultExtension: 'js'
             },
             "materialize-css": {
-                main: "dist/js/materialize"
+                main: "dist/js/materialize",
             },
             "angular2-materialize": {
-                main: "dist/materialize-directive",
+                main: "dist/index",
+                defaultExtension: "js"
+            },
+            "ng2-datetime-picker" : {
+                main: 'ng2-datetime-picker.umd.js',
                 defaultExtension: "js"
             }
         }
