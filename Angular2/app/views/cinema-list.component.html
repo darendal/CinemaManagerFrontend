@@ -7,9 +7,15 @@
                 <contact-icon [name]="cinema.Name"></contact-icon>
                 <span class="title">
                     {{cinema.Name}}
-                    <a href="#!" class="secondary-content" (click)="onSelect(cinema)">
-                        <i class="material-icons">mode_edit</i>
-                    </a>
+                    <div class="secondary-content">
+                        <a href="#!" (click)="onSelect(cinema)">
+                            <i class="material-icons">mode_edit</i>
+                        </a>
+                        <a href="#!" (click)="onDelete(cinema)">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </div>
+
                 </span>
                 <p class="address">{{cinema.Address}}</p>
             </li>
@@ -21,6 +27,6 @@
         >
             <i class="material-icons">add</i>
         </a>
-        <edit-cinema [cinema]="selectedCinema"></edit-cinema>
+        <edit-cinema [cinema]="selectedCinema" (cinemaPost)="onCinemaPost($event);"></edit-cinema>
     </div>
 </div>

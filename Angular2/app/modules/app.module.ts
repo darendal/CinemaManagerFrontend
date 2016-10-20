@@ -8,14 +8,15 @@ import {EditCinema} from "../components/edit-cinema.component";
 import {ContactIcon} from "../components/contact-icon.component";
 import {HttpModule} from "@angular/http"
 import {ToastTest} from "../components/toast-test.component";
-import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
+import { Ng2DatetimePickerModule,DateTime } from 'ng2-datetime-picker';
 
 
 @NgModule({
     imports:[
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        Ng2DatetimePickerModule
     ],
     declarations: [ AppComponent,MaterializeDirective,CinemaList,EditCinema,ContactIcon,ToastTest],
     bootstrap:    [ AppComponent ]

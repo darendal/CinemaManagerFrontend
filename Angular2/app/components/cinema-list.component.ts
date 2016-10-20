@@ -16,7 +16,7 @@ import {ToastService} from "../services/toast.service";
     ],
     selector: 'cinema-list',
     templateUrl:'./app/views/cinema-list.component.html',
-    providers:[CinemaService,ToastService]
+    providers:[CinemaService, ToastService]
 })
 export class CinemaList implements OnInit{
     ngOnInit(): void {
@@ -36,6 +36,26 @@ export class CinemaList implements OnInit{
     newCinema():void{
         this.selectedCinema = new Cinema;
     }
+
+    onCinemaPost(event): void
+    {
+        this.cinemas.push(event.value);
+    }
+
+    onDelete(cinema: Cinema): void
+    {
+        this.cinemaService.delete(cinema.CinemaId)
+            .then(()=>
+            {
+                this.toaster.showToastSuccess("Cinema Deleted");
+                this.cinemas = this.cinemas.filter(c=>c !== cinema);
+                if(this.selectedCinema === cinema)
+                {
+                    this.selectedCinema = null;
+                }
+            });
+    }
+
 
 
 

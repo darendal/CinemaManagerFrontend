@@ -5,6 +5,26 @@
         <div class="row">
             <form class="col s12" (ngSubmit)="onSubmit()" #cinemaForm = "ngForm">
                 <div class="row">
+                    <div class="input-field col s12 m6">
+                        <p class="range-field">
+                            <label class="active">
+                                Open Time: {{cinema.OpenTimeHours | number:"2.0-0"}}:{{cinema.OpenTimeMinutes| number:"2.0-0"}}
+                            </label>
+                            <input [(ngModel)]="cinema.OpenTimeHours" type="range" id="OpenHours" min="0" max="23" name="OpenHours" />
+                            <input [(ngModel)]="cinema.OpenTimeMinutes" type="range" id="OpenMinutes" min="0" max="59" name="OpenMinutes" />
+                        </p>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <p class="range-field">
+                            <label class="active">
+                                Open Time: {{cinema.CloseTimeHours | number:"2.0-0"}}:{{cinema.CloseTimeMinutes| number:"2.0-0"}}
+                            </label>
+                            <input [(ngModel)]="cinema.CloseTimeHours" type="range" id="CloseHours" min="0" max="23" name="CloseHours" />
+                            <input [(ngModel)]="cinema.CloseTimeMinutes" type="range" id="CloseMinutes" min="0" max="59" name="CloseMinutes" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s6">
                         <input [(ngModel)]="cinema.Name"
                                id="cinema_name"
