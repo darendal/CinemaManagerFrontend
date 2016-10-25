@@ -1,3 +1,5 @@
+import "./RxJsImports";
+
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
@@ -8,7 +10,8 @@ import {EditCinema} from "../components/edit-cinema.component";
 import {ContactIcon} from "../components/contact-icon.component";
 import {HttpModule} from "@angular/http"
 import {ToastTest} from "../components/toast-test.component";
-import { Ng2DatetimePickerModule,DateTime } from 'ng2-datetime-picker';
+import {MovieSearch} from "../components/movie-search.component";
+
 
 
 @NgModule({
@@ -16,9 +19,16 @@ import { Ng2DatetimePickerModule,DateTime } from 'ng2-datetime-picker';
         BrowserModule,
         FormsModule,
         HttpModule,
-        Ng2DatetimePickerModule
     ],
-    declarations: [ AppComponent,MaterializeDirective,CinemaList,EditCinema,ContactIcon,ToastTest],
+    declarations: [
+        AppComponent,
+        MaterializeDirective,
+        CinemaList,
+        EditCinema,
+        ContactIcon,
+        ToastTest,
+        MovieSearch,
+    ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

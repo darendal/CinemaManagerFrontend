@@ -1,3 +1,4 @@
+import {Theater} from "./theater";
 export class Cinema{
     CinemaId: number;
     Name: string;
@@ -6,6 +7,7 @@ export class Cinema{
     OpenTimeMinutes:number;
     CloseTimeHours:number;
     CloseTimeMinutes:number;
+    Theaters: Theater[];
 
     constructor(){
         this.CloseTimeHours = 0;

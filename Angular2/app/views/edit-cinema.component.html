@@ -54,5 +54,10 @@
                 <button class="waves-effect waves-light btn" type="submit">Save</button>
             </form>
         </div>
+        <ul>
+            <li *ngFor="let theater of cinema.Theaters">
+                {{theater.TheaterNumber}}
+            </li>
+        </ul>
     </div>
 </div>

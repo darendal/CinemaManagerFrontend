@@ -14,7 +14,8 @@ import {Component} from "@angular/core";
     </div>
 </nav>
 <div class="container">
-    <cinema-list></cinema-list>
+    <movie-search></movie-search>
+    
 </div>
 
 `

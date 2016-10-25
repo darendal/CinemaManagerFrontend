@@ -1,7 +1,6 @@
 
 
 import {Injectable} from "@angular/core";
-import {CINEMAS} from "../mocks/mock-cinemas";
 import {Cinema} from "../data-objects/cinema";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
