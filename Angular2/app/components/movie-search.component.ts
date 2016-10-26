@@ -13,29 +13,30 @@ import { Subject }           from 'rxjs/Subject';
         <div class="col s6">
             <input #searchBox id="search-box" 
                    (keyup)="search(searchBox.value)"
-                   (focus)="focus = true"
-                   (blur)="focus=false"
+                   (focus)="isInputInFocus(true,searchBox)"
             />
-            <div class="z-depth-3" style="position: absolute;z-index: 999" *ngIf="focus">
+            <div class="z-depth-3" style="position: absolute;z-index: 999" *ngIf="focus && movies">
                 <ul class="collection with-header" 
                 >
-                    <li class="collection-item avatar" *ngFor="let movie of movies | async | slice:0:5">
+                    <li class="collection-item avatar" *ngFor="let movie of movies | async | slice:0:5"
+                        (mouseenter)="onMouseEnter(movie)"
+                        (mouseleave)="onMouseLeave()"
+                        (click)="onSelectMovie(movie,searchBox)"
+                        [class.active]="shouldHighlight(movie)"
+                    >
                         <img [src]="movie.Poster == 'N/A' ? 'content/images/default-placeholder.png' : movie.Poster " 
                             onerror="this.src='content/images/default-placeholder.png'"
+                            
                             class="circle responsive-image"/>
                         <span class="title">{{movie.Title}}</span>
                         <p>
-                            Released:{{movie.Year}}
+                            Released: {{movie.Year}}
                         </p>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    test<br/><hr/>
-    test<br/><hr/>
-    test<br/><hr/>
-    test<br/><hr/>
 </div>
 `,
     providers:[MovieService]
@@ -45,12 +46,45 @@ export class MovieSearch implements OnInit{
     movies: Observable<Movie[]>;
     private searchTerms = new Subject<string>();
     focus:boolean;
+    hoveredMovie: Movie;
 
     constructor(private movieService: MovieService){}
 
     search(term:string): void
     {
         this.searchTerms.next(term);
+    }
+
+    onMouseEnter(movie:Movie) :void
+    {
+        this.hoveredMovie = movie;
+    }
+
+    onMouseLeave() :void
+    {
+        this.hoveredMovie = null;
+    }
+
+    shouldHighlight(movie:Movie):boolean
+    {
+        return this.hoveredMovie && (this.hoveredMovie == movie);
+    }
+
+    isInputInFocus(state:boolean, input :HTMLInputElement) : void
+    {
+        this.focus = state;
+
+        if(!this.focus)
+        {
+            input.value = "";
+        }
+    }
+
+    onSelectMovie(movie:Movie, input : HTMLInputElement):void
+    {
+        console.log(movie);
+        //TODO: Make this work as an emitter, sending anything listening the imdb id of the selected movie
+        this.isInputInFocus(false,input);
     }
 
     ngOnInit(): void {

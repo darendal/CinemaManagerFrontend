@@ -7,7 +7,7 @@ import {Movie} from "../data-objects/movie";
 @Injectable()
 export class MovieService {
     private cinemaUrl = 'http://localhost:63426/Api/Movies/';
-    private searchUrl = 'http://www.omdbapi.com/?'
+    private searchUrl = 'http://www.omdbapi.com/?';
     private headers = new Headers({'Content-Type':'application/json'});
 
     constructor(private http: Http){}
@@ -17,15 +17,13 @@ export class MovieService {
             .get(`${this.searchUrl}s=${title}&type=movie`)
             .map((r: Response) =>
             {
-                let list = (r.json().Search as Movie[])
+                let list = (r.json().Search as Movie[]);
                 if(list)
                 {
-                    console.log(list);
                     list.sort(function(a,b) {
                         return b.Year - a.Year
                     })
                 }
-
                 return list
             });
     }
