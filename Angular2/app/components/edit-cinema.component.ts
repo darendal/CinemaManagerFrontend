@@ -8,11 +8,7 @@ import {ToastService} from "../services/toast.service";
 
 @Component({
     selector:'edit-cinema',
-    styles:[
-`
-
-`
-    ],
+    styles:[],
     templateUrl:'./app/views/edit-cinema.component.html'
 })
 export class EditCinema{

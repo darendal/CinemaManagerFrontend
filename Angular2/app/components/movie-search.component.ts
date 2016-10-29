@@ -1,8 +1,9 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, EventEmitter, Output} from "@angular/core";
 import {MovieService} from "../services/movie.service";
 import {Movie} from "../data-objects/movie";
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
+
 @Component({
     selector:'movie-search',
     template:
@@ -21,7 +22,7 @@ import { Subject }           from 'rxjs/Subject';
                     <li class="collection-item avatar" *ngFor="let movie of movies | async | slice:0:5"
                         (mouseenter)="onMouseEnter(movie)"
                         (mouseleave)="onMouseLeave()"
-                        (click)="onSelectMovie(movie,searchBox)"
+                        (click)="onSelect(movie,searchBox)"
                         [class.active]="shouldHighlight(movie)"
                     >
                         <img [src]="movie.Poster == 'N/A' ? 'content/images/default-placeholder.png' : movie.Poster " 
@@ -47,6 +48,8 @@ export class MovieSearch implements OnInit{
     private searchTerms = new Subject<string>();
     focus:boolean;
     hoveredMovie: Movie;
+
+    @Output() movieSelected = new EventEmitter();
 
     constructor(private movieService: MovieService){}
 
@@ -80,9 +83,8 @@ export class MovieSearch implements OnInit{
         }
     }
 
-    onSelectMovie(movie:Movie, input : HTMLInputElement):void
+    onSelect(movie:Movie, input : HTMLInputElement):void
     {
-        console.log(movie);
         //TODO: Make this work as an emitter, sending anything listening the imdb id of the selected movie
         this.isInputInFocus(false,input);
     }
