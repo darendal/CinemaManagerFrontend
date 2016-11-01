@@ -5,7 +5,7 @@ import {Component} from "@angular/core";
     template:`
 <movie-search (movieSelected)="onSelect($event)"></movie-search>
 <div class="row">
-    <div class="col s6">
+    <div class="col s8">
         <movie-detail [movieId]="selectedMovieId"></movie-detail>
     </div>
 </div>

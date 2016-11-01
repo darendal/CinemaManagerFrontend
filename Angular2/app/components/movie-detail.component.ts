@@ -5,8 +5,8 @@ import {Movie} from "../data-objects/movie";
     selector: 'movie-detail',
     styles:[
         `
-img{
-    width:25%;
+.card-image {
+    max-width:10%;
     height:auto;
 }
 `
