@@ -14,5 +14,5 @@ export class Movie{
     Poster:string;
     Metascore:string;
     ImdbRating:string;
-    ImdbId:string;
+    imdbID:string;
 }

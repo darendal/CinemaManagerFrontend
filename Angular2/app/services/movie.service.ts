@@ -28,10 +28,18 @@ export class MovieService {
             });
     }
 
-    getCinemas(): Promise<Movie[]> {
+    getMovies(): Promise<Movie[]> {
         return this.http.get(this.cinemaUrl)
             .toPromise()
             .then(response =>response.json() as Movie[])
+            .catch(this.handleError);
+    }
+
+    getMovieByImdbId(imdbId : string) : Promise<Movie> {
+        return this.http
+            .get(`${this.searchUrl}i=${imdbId}&type=movie`)
+            .toPromise()
+            .then(response => response.json() as Movie)
             .catch(this.handleError);
     }
 

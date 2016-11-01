@@ -1,0 +1,16 @@
+<div class="card horizontal" *ngIf="movie">
+    <div class="card-image">
+        <img s [src]="movie.Poster == 'N/A' ? 'content/images/default-placeholder.png' : movie.Poster "
+             onerror="this.src='content/images/default-placeholder.png'"/>
+    </div>
+    <div class="card-stacked">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12">
+                    <label for="title" class="active">Title</label>
+                    <span id="title">{{movie.Title}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

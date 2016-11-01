@@ -56,9 +56,6 @@ export class CinemaList implements OnInit{
             });
     }
 
-
-
-
     title = "Edit Cinema";
     cinemas: Cinema[];
 

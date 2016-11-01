@@ -11,6 +11,8 @@ import {ContactIcon} from "../components/contact-icon.component";
 import {HttpModule} from "@angular/http"
 import {ToastTest} from "../components/toast-test.component";
 import {MovieSearch} from "../components/movie-search.component";
+import {MovieManager} from "../components/movie-manager.component";
+import {MovieDetail} from "../components/movie-detail.component";
 
 
 
@@ -28,6 +30,8 @@ import {MovieSearch} from "../components/movie-search.component";
         ContactIcon,
         ToastTest,
         MovieSearch,
+        MovieManager,
+        MovieDetail
     ],
     bootstrap:    [ AppComponent ]
 })

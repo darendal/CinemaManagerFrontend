@@ -85,7 +85,9 @@ export class MovieSearch implements OnInit{
 
     onSelect(movie:Movie, input : HTMLInputElement):void
     {
-        //TODO: Make this work as an emitter, sending anything listening the imdb id of the selected movie
+        this.movieSelected.emit({
+            value:movie.imdbID
+        });
         this.isInputInFocus(false,input);
     }
 

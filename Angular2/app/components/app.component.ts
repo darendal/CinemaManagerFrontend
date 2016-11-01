@@ -14,7 +14,7 @@ import {Component} from "@angular/core";
     </div>
 </nav>
 <div class="container">
-    <movie-search></movie-search>
+    <movie-manager></movie-manager>
     
 </div>
 
